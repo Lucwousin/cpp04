@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME := animal_ex00
+NAME := animal_ex01
 
 CC := c++
 
@@ -22,9 +22,7 @@ SRCS :=	main.cpp				\
 		Animal.cpp				\
 		Dog.cpp					\
 		Cat.cpp					\
-		WrongAnimal.cpp			\
-		WrongDog.cpp			\
-		WrongCat.cpp
+		Brain.cpp
 SRCP :=	$(addprefix $(SRCD), $(SRCS))
 
 OBJD :=	obj/
@@ -35,9 +33,7 @@ INCD :=	include/
 INCS :=	Animal.hpp				\
 		Dog.hpp					\
 		Cat.hpp					\
-		WrongAnimal.hpp			\
-		WrongDog.hpp			\
-		WrongCat.hpp
+		Brain.hpp
 INCP := $(addprefix $(INCD), $(INCS))
 CFLAGS += -I $(INCD)
 

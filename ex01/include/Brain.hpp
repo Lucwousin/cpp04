@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   WrongAnimal.hpp                                         :+:    :+:            */
+/*   Brain.hpp                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lsinke <lsinke@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/09/28 18:19:59 by lsinke        #+#    #+#                 */
-/*   Updated: 2022/09/28 18:19:59 by lsinke        ########   odam.nl         */
+/*   Created: 2022/09/28 19:36:18 by lsinke        #+#    #+#                 */
+/*   Updated: 2022/09/28 19:36:18 by lsinke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-#define WRONGANIMAL_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-#include <string>
+# include <string>
 
 using std::string;
 
-class WrongAnimal {
+class Brain {
 	public:
-		WrongAnimal();
-		WrongAnimal(const WrongAnimal &other);
-		~WrongAnimal();
-		WrongAnimal &operator=(const WrongAnimal &rhs);
+		Brain();
+		Brain(const Brain &other);
+		~Brain();
+		Brain &operator=(const Brain &rhs);
 
-		string const	&getType() const;
-		void			makeSound() const;
+		const string	&getIdea(int i) const;
+		void			setIdea(int i, const string &str);
 
-	protected:
-		string	_type;
+	private:
+		string	_ideas[100];
 };
 
-#endif
+#endif //BRAIN_HPP
