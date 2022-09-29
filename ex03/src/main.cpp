@@ -95,6 +95,8 @@ static void	limitation() {
 
 	AMateria& mater = ice;
 
+	(void) mater;
+	(void) cure;
 	// If you uncomment this it won't work, because the assignment operator is private and
 	// not implemented. I implemented them in Ice and Cure, as they take the more specific
 	// arguments. The way the subject wants you to implement this doesn't really make sense,
