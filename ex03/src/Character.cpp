@@ -13,9 +13,13 @@
 #include <Character.hpp>
 #include <iostream>
 
-Character::Character(const std::string &name): _name(name), _inv() {}
+Character::Character(const std::string &name): _name(name), _inv() {
+	std::cout << "Character default constructor called" << std::endl;
+}
 
 Character::Character(const Character &other): _name(other._name), _inv() {
+	std::cout << "Character copy constructor called" << std::endl;
+
 	for (int i = 0; i < INV_SIZE; i++) {
 		if (other._inv[i] != nullptr)
 			_inv[i] = other._inv[i]->clone();
@@ -23,12 +27,16 @@ Character::Character(const Character &other): _name(other._name), _inv() {
 }
 
 Character::~Character() {
+	std::cout << "Character destructor called" << std::endl;
+
 	for (int i = 0; i < INV_SIZE; i++) {
 		delete _inv[i];
 	}
 }
 
 Character &Character::operator=(const Character &rhs) {
+	std::cout << "Character assignment operator called" << std::endl;
+
 	if (this != &rhs) {
 		for (int i = 0; i < INV_SIZE; i++) {
 			delete _inv[i];

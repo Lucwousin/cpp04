@@ -14,11 +14,18 @@
 #include <ICharacter.hpp>
 #include <iostream>
 
-AMateria::AMateria(const AMateria &other): _type(other._type) {}
+AMateria::AMateria(const AMateria &other): _type(other._type) {
+	std::cout << "AMateria copy constructor called" << std::endl;
+}
 
-AMateria::AMateria(const std::string &type): _type(type) {}
+AMateria::AMateria(const std::string &type): _type(type) {
+	std::cout << "AMateria parameterized constructor called" << std::endl;
 
-AMateria::~AMateria() {}
+}
+
+AMateria::~AMateria() {
+	std::cout << "AMateria destructor called" << std::endl;
+}
 
 std::string const &AMateria::getType() const {
 	return _type;

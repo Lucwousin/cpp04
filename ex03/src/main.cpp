@@ -89,9 +89,23 @@ static void	tests_i_guess() {
 	// Everything will of course be destroyed here
 }
 
+static void	limitation() {
+	Ice ice = Ice();
+	Cure cure = Cure();
+
+	AMateria& mater = ice;
+
+	// If you uncomment this it won't work, because the assignment operator is private and
+	// not implemented. I implemented them in Ice and Cure, as they take the more specific
+	// arguments. The way the subject wants you to implement this doesn't really make sense,
+	// but I guess it's just to learn the basics...
+	// mater = cure;
+}
+
 int main() {
 	provided_tests();
 	tests_i_guess();
+	limitation();
 
 	system("leaks -q materia_ex03");
 }

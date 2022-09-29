@@ -13,9 +13,13 @@
 #include <MateriaSource.hpp>
 #include <iostream>
 
-MateriaSource::MateriaSource(): _templates() {}
+MateriaSource::MateriaSource(): _templates() {
+	std::cout << "MateriaSource default constructor called" << std::endl;
+}
 
 MateriaSource::MateriaSource(const MateriaSource &other): _templates() {
+	std::cout << "MateriaSource copy constructor called" << std::endl;
+
 	for (int i = 0; i < TEMPLATE_COUNT; i++) {
 		if (other._templates[i] != nullptr)
 			_templates[i] = other._templates[i]->clone();
@@ -23,12 +27,16 @@ MateriaSource::MateriaSource(const MateriaSource &other): _templates() {
 }
 
 MateriaSource::~MateriaSource() {
+	std::cout << "MateriaSource destructor called" << std::endl;
+
 	for (int i = 0; i < TEMPLATE_COUNT; i++) {
 		delete _templates[i];
 	}
 }
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &rhs) {
+	std::cout << "MateriaSource assignment operator called" << std::endl;
+
 	if (this != &rhs) {
 		for (int i = 0; i < TEMPLATE_COUNT; i++) {
 			delete _templates[i];

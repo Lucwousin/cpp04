@@ -14,13 +14,20 @@
 #include <ICharacter.hpp>
 #include <iostream>
 
-Cure::Cure(): AMateria("cure") {}
+Cure::Cure(): AMateria("cure") {
+	std::cout << "Cure default constructor called" << std::endl;
+}
 
-Cure::Cure(const Cure &other): AMateria(other.getType()) {}
+Cure::Cure(const Cure &other): AMateria(other.getType()) {
+	std::cout << "Cure copy constructor called" << std::endl;
+}
 
-Cure::~Cure() {}
+Cure::~Cure() {
+	std::cout << "Cure destructor called" << std::endl;
+}
 
 Cure& Cure::operator=(const Cure &rhs) {
+	std::cout << "Cure assignment operator called" << std::endl;
 	(void) rhs;
 	return *this;
 }

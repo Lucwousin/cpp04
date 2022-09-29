@@ -14,13 +14,21 @@
 #include <ICharacter.hpp>
 #include <iostream>
 
-Ice::Ice(): AMateria("ice") {}
+Ice::Ice(): AMateria("ice") {
+	std::cout << "Ice default constructor called" << std::endl;
+}
 
-Ice::Ice(const Ice &other): AMateria(other.getType()) {}
+Ice::Ice(const Ice &other): AMateria(other.getType()) {
+	std::cout << "Ice copy constructor called" << std::endl;
+}
 
-Ice::~Ice() {}
+Ice::~Ice() {
+	std::cout << "Ice destructor called" << std::endl;
+}
 
 Ice& Ice::operator=(const Ice &rhs) {
+	std::cout << "Ice assignment operator called" << std::endl;
+
 	(void) rhs;
 	return *this;
 }
