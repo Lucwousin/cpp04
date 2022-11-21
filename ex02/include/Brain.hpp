@@ -15,8 +15,6 @@
 
 # include <string>
 
-using std::string;
-
 class Brain {
 	public:
 		Brain();
@@ -24,11 +22,11 @@ class Brain {
 		~Brain();
 		Brain &operator=(const Brain &rhs);
 
-		const string	&getIdea(int i) const;
-		void			setIdea(int i, const string &str);
+		const std::string	&getIdea(int i) const;
+		void	setIdea(int i, const std::string &str);
 
 	private:
-		string	_ideas[100];
+		std::string	_ideas[100];
 };
 
 #endif //BRAIN_HPP

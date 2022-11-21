@@ -38,7 +38,7 @@ Brain	&Brain::operator=(const Brain &rhs) {
 	return *this;
 }
 
-const string	&Brain::getIdea(int i) const {
+const std::string	&Brain::getIdea(int i) const {
 	if (i < 0 || i > 99) {
 		std::cerr << "getIdea: Invalid index" << std::endl;
 		exit(-1);
@@ -46,7 +46,7 @@ const string	&Brain::getIdea(int i) const {
 	return _ideas[i];
 }
 
-void	Brain::setIdea(int i, const string &str) {
+void	Brain::setIdea(int i, const std::string &str) {
 	if (i < 0 || i > 99) {
 		std::cerr << "setIdea: Invalid index" << std::endl;
 		exit(-1);
