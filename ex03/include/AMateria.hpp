@@ -21,7 +21,6 @@ class AMateria
 {
 	private:
 		AMateria(); // Not implemented on purpose
-		AMateria &operator=(const AMateria &rhs); // Just like this one, type is constant
 
 		const std::string	_type;
 
@@ -32,6 +31,7 @@ class AMateria
 
 	public:
 		virtual ~AMateria();
+		AMateria &operator=(const AMateria &rhs); // Just like this one, type is constant
 
 		std::string const & getType() const;
 		virtual AMateria* clone() const = 0;
