@@ -21,17 +21,22 @@ void	correct() {
 	std::cout << "--- correct ---" << std::endl;
 
 	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
+	std::cout << meta->getType() << std::endl;
 	meta->makeSound();
-
 	delete meta;
-	delete j;
+	std::cout << '\n';
+
+	const Animal* i = new Cat();
+	std::cout << i->getType() << std::endl;
+	i->makeSound(); //will output the cat sound!
 	delete i;
+	std::cout << '\n';
+
+	const Animal* j = new Dog();
+	std::cout << j->getType() << std::endl;
+	j->makeSound();
+	delete j;
+	std::cout << '\n';
 }
 
 void	wrong() {
@@ -39,38 +44,49 @@ void	wrong() {
 	std::cout << "--- wrong ---" << std::endl;
 
 	const WrongAnimal* meta = new WrongAnimal();
-	const WrongAnimal* j = new WrongDog();
-	const WrongAnimal* i = new WrongCat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the wrong animal sound!
-	j->makeSound();
 	meta->makeSound();
-
 	delete meta;
-	delete j; // This will only call the WrongAnimal destructor, not the wrongDog as well
+	std::cout << '\n';
+
+	const WrongAnimal* i = new WrongCat();
+	std::cout << i->getType() << std::endl;
+	i->makeSound(); //will output the cat sound!
 	delete i;
+	std::cout << '\n';
+
+	const WrongAnimal* j = new WrongDog();
+	std::cout << j->getType() << std::endl;
+	j->makeSound();
+	delete j;
+	std::cout << '\n';
 }
 
 void	extra() {
 
 	std::cout << "--- extra ---" << std::endl;
 
-	Cat		cat = Cat();
-	Dog		dog = Dog();
+	const Cat *cat = new Cat();
+	const Animal *copy = new Animal(*cat);
 
-	Animal	*cat2 = &cat;
-	Animal	*dog2 = &dog;
+	std::cout << cat->getType() << std::endl;
+	cat->makeSound();
+	delete cat;
+	std::cout << '\n';
 
-	std::cout << cat2->getType() << std::endl;
-	std::cout << dog2->getType() << std::endl;
+	std::cout << copy->getType() << std::endl;
+	copy->makeSound();
+	delete copy;
+	std::cout << '\n';
 
-	// Even though these 2 are Animal pointers, they behave like the animals they are!
-
-	cat.makeSound();
-	cat2->makeSound();
-	dog.makeSound();
-	dog2->makeSound();
+	/*
+	 * Woah, the cat copy lost type info!
+	 *
+	 * This makes sense, as every cat is an animal but not every animal is a cat,
+	 * and we may only want to copy the "animal" stuff. This does mean you can't
+	 * easily copy your objects if you don't know what type it was.
+	 *
+	 * (Unless you add a member function to copy the current object..)
+	 */
 }
 
 int	main() {

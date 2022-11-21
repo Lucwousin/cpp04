@@ -15,8 +15,6 @@
 
 #include <string>
 
-using std::string;
-
 class Animal {
 	public:
 		Animal();
@@ -24,11 +22,11 @@ class Animal {
 		virtual ~Animal();
 		Animal &operator=(const Animal &rhs);
 
-		string const	&getType() const;
-		virtual void	makeSound() const;
+		std::string const	&getType() const;
+		virtual void		makeSound() const;
 
 	protected:
-		string	_type;
+		std::string	_type;
 };
 
 #endif //ANIMAL_HPP

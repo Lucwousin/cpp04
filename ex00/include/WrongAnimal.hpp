@@ -15,8 +15,6 @@
 
 #include <string>
 
-using std::string;
-
 class WrongAnimal {
 	public:
 		WrongAnimal();
@@ -24,11 +22,11 @@ class WrongAnimal {
 		~WrongAnimal();
 		WrongAnimal &operator=(const WrongAnimal &rhs);
 
-		string const	&getType() const;
-		void			makeSound() const;
+		std::string const	&getType() const;
+		void	makeSound() const;
 
 	protected:
-		string	_type;
+		std::string	_type;
 };
 
 #endif
