@@ -21,7 +21,7 @@ Character::Character(const Character &other): _name(other._name), _inv() {
 	std::cout << "Character copy constructor called" << std::endl;
 
 	for (int i = 0; i < INV_SIZE; i++) {
-		if (other._inv[i] != nullptr)
+		if (other._inv[i] != NULL)
 			_inv[i] = other._inv[i]->clone();
 	}
 }
@@ -52,7 +52,7 @@ std::string const &Character::getName() const {
 
 void Character::equip(AMateria *m) {
 	for (int i = 0; i < INV_SIZE; i++) {
-		if (_inv[i] == nullptr) {
+		if (_inv[i] == NULL) {
 			_inv[i] = m;
 			return;
 		}
@@ -65,11 +65,11 @@ void Character::unequip(int idx) {
 		std::cout << "Invalid inventory index! Use a value between 0 and " << INV_SIZE << std::endl;
 		return;
 	}
-	if (_inv[idx] == nullptr) {
+	if (_inv[idx] == NULL) {
 		std::cout << _name << " did not have a materia in slot " << idx << "!" << std::endl;
 		return;
 	}
-	_inv[idx] = nullptr;
+	_inv[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter& target) {
@@ -77,7 +77,7 @@ void Character::use(int idx, ICharacter& target) {
 		std::cout << "Invalid inventory index! Use a value between 0 and " << INV_SIZE << std::endl;
 		return;
 	}
-	if (_inv[idx] == nullptr) {
+	if (_inv[idx] == NULL) {
 		std::cout << _name << " did not have a materia in slot " << idx << "!" << std::endl;
 		return;
 	}

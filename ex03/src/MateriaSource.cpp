@@ -21,7 +21,7 @@ MateriaSource::MateriaSource(const MateriaSource &other): _templates() {
 	std::cout << "MateriaSource copy constructor called" << std::endl;
 
 	for (int i = 0; i < TEMPLATE_COUNT; i++) {
-		if (other._templates[i] != nullptr)
+		if (other._templates[i] != NULL)
 			_templates[i] = other._templates[i]->clone();
 	}
 }
@@ -48,7 +48,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &rhs) {
 
 void MateriaSource::learnMateria(AMateria *type) {
 	for (int i = 0; i < TEMPLATE_COUNT; i++) {
-		if (_templates[i] == nullptr) {
+		if (_templates[i] == NULL) {
 			_templates[i] = type;
 			return;
 		}
@@ -58,9 +58,9 @@ void MateriaSource::learnMateria(AMateria *type) {
 
 AMateria *MateriaSource::createMateria(const std::string &type) {
 	for (int i = 0; i < TEMPLATE_COUNT; i++) {
-		if (_templates[i] != nullptr && _templates[i]->getType() == type) {
+		if (_templates[i] != NULL && _templates[i]->getType() == type) {
 			return _templates[i]->clone();
 		}
 	}
-	return nullptr;
+	return NULL;
 }
